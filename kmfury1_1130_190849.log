@@ -1,0 +1,1770 @@
+25-11-30 19:08:49 -- Starting new test run for student with handle 'kmfury1'
+25-11-30 19:08:49 -- (Re-)creating database 'kmfury1' on port 11363
+DROP DATABASE
+25-11-30 19:08:49 -- Status from database drop is 0
+CREATE DATABASE
+Checking script list
+---------------------------------------------------
+Running script 'SQL-DB-Creation-Scripts/008-person.sql'
+create table person
+(
+    person_id    integer not null,
+    person_name  text,
+    person_email text,
+    age          integer
+);
+CREATE TABLE
+alter table person
+    add constraint person_pk
+        primary key (person_id);
+ALTER TABLE
+
+Exit status for 'SQL-DB-Creation-Scripts/008-person.sql': 0
+
+---------------------------------------------------
+Running script 'SQL-DB-Creation-Scripts/person.sql'
+INSERT INTO public.person (person_id, person_name, person_email, age) VALUES (1, 'Kaiden Fury', 'furyious5@gmail.com', 19);
+INSERT 0 1
+
+Exit status for 'SQL-DB-Creation-Scripts/person.sql': 0
+
+---------------------------------------------------
+Running script 'SQL-DB-Creation-Scripts/003-activity_type.sql'
+create table activity_type
+(
+    activitytype_id   integer not null,
+    activitytype_name text
+);
+CREATE TABLE
+alter table activity_type
+    add constraint activity_type_pk
+        primary key (activitytype_id);
+ALTER TABLE
+
+Exit status for 'SQL-DB-Creation-Scripts/003-activity_type.sql': 0
+
+---------------------------------------------------
+Running script 'SQL-DB-Creation-Scripts/activity_type.sql'
+INSERT INTO public.activity_type (activitytype_id, activitytype_name) VALUES (1, 'at home ');
+INSERT 0 1
+INSERT INTO public.activity_type (activitytype_id, activitytype_name) VALUES (2, 'driving');
+INSERT 0 1
+INSERT INTO public.activity_type (activitytype_id, activitytype_name) VALUES (3, 'networking');
+INSERT 0 1
+INSERT INTO public.activity_type (activitytype_id, activitytype_name) VALUES (4, 'school work');
+INSERT 0 1
+INSERT INTO public.activity_type (activitytype_id, activitytype_name) VALUES (5, 'classes');
+INSERT 0 1
+INSERT INTO public.activity_type (activitytype_id, activitytype_name) VALUES (6, 'free time');
+INSERT 0 1
+INSERT INTO public.activity_type (activitytype_id, activitytype_name) VALUES (7, 'gameing ');
+INSERT 0 1
+INSERT INTO public.activity_type (activitytype_id, activitytype_name) VALUES (8, 'yard work');
+INSERT 0 1
+INSERT INTO public.activity_type (activitytype_id, activitytype_name) VALUES (9, 'vaction planing ');
+INSERT 0 1
+INSERT INTO public.activity_type (activitytype_id, activitytype_name) VALUES (10, 'shopping ');
+INSERT 0 1
+INSERT INTO public.activity_type (activitytype_id, activitytype_name) VALUES (11, 'chruch prepreation');
+INSERT 0 1
+INSERT INTO public.activity_type (activitytype_id, activitytype_name) VALUES (12, 'eating');
+INSERT 0 1
+INSERT INTO public.activity_type (activitytype_id, activitytype_name) VALUES (13, 'resting');
+INSERT 0 1
+INSERT INTO public.activity_type (activitytype_id, activitytype_name) VALUES (14, 'SGA duties');
+INSERT 0 1
+INSERT INTO public.activity_type (activitytype_id, activitytype_name) VALUES (15, 'hobbie');
+INSERT 0 1
+INSERT INTO public.activity_type (activitytype_id, activitytype_name) VALUES (16, 'any other transportation other than driving');
+INSERT 0 1
+INSERT INTO public.activity_type (activitytype_id, activitytype_name) VALUES (17, 'during vaction');
+INSERT 0 1
+
+Exit status for 'SQL-DB-Creation-Scripts/activity_type.sql': 0
+
+---------------------------------------------------
+Running script 'SQL-DB-Creation-Scripts/000-activity.sql'
+create table activity
+(
+    activity_id     integer not null,
+    activity_name   text,
+    activitytype_id integer
+);
+CREATE TABLE
+alter table activity
+    add constraint activity_pk
+        primary key (activity_id);
+ALTER TABLE
+alter table activity
+    add constraint activity_fk
+        foreign key (activitytype_id) references activity_type;
+ALTER TABLE
+
+Exit status for 'SQL-DB-Creation-Scripts/000-activity.sql': 0
+
+---------------------------------------------------
+Running script 'SQL-DB-Creation-Scripts/activity.sql'
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (1, 'wake up', 1);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (2, 'eat breakfast', 12);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (3, 'feed Luna', 1);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (4, 'use the bathroom', 1);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (5, 'brush teeth ', 1);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (6, 'get dressed', 1);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (7, 'pack bags', 1);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (8, 'drive to school', 2);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (9, 'drive to rouses', 2);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (10, 'go to Community Organizing class', 5);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (11, 'go to Mondernism in Music and Art class', 5);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (12, 'go to intro to Relational Databases class', 5);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (13, 'go to American Trials class', 5);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (14, 'Go to intro to Comp Graphics class', 5);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (15, 'go to Eboard meeting', 14);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (16, 'plan Wolf Pack Wednesday', 14);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (17, 'go to General Body meeting', 14);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (18, 'set up Wolf Pack Wednesday', 14);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (20, 'go to any Community Organizing intercollegiate meeting', 4);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (21, 'drive home', 2);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (22, 'eat dinner', 12);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (23, 'eat lunch ', 12);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (24, 'do any homework for Object Orieneted Programming', 4);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (25, 'do any homework for classes- home', 4);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (26, 'do any homework for classes-at school', 4);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (27, 'play games', 7);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (28, 'lissen to music ', 6);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (29, 'watch youtube or ticktock', 6);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (30, 'look at any homework that is due for the week ', 4);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (31, 'run', 15);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (32, 'make sure to check prices for cruise ', 9);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (33, 'watch any cruise vid and look at social media for any updates', 9);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (34, 'check in for curise ', 9);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (35, 'drive to the airport', 2);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (36, 'drive to the store', 2);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (37, 'drive to church', 2);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (38, 'drive to justin''s house', 2);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (39, 'walk to mimi''s house', 16);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (40, 'cut grass', 1);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (41, 'wash disshes', 1);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (42, 'do laundry', 1);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (43, 'get prescription', 10);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (44, 'get uber to hotel', 16);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (45, 'go to the port', 16);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (46, 'go to the doctor', 2);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (47, 'go to poyboy debot', 2);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (48, 'get haricut', 2);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (49, 'get waxed', 2);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (50, 'go to campground', 2);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (51, 'go to the ship', 16);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (52, 'meet nannys coworkers', 3);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (53, 'go to football game', 2);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (54, 'go to consert', 2);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (55, 'run race', 15);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (56, 'crusie vacation day 1 ', 17);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (57, 'cruise vacation day 2', 17);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (58, 'cruise vacation day 3', 17);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (59, 'cruise vacation day 4', 17);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (60, 'cruise vacation day 5', 17);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (61, 'cruise vacation day 6', 17);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (62, 'cruise vacation day 7', 17);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (63, 'cruise vacation day 8', 17);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (64, 'go to sleep', 13);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (65, 'take a bath', 1);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (66, 'water plants', 1);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (67, 'help mom make make salads', 1);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (68, 'drive to nannys house', 2);
+INSERT 0 1
+INSERT INTO public.activity (activity_id, activity_name, activitytype_id) VALUES (69, 'walk with nanny', 15);
+INSERT 0 1
+
+Exit status for 'SQL-DB-Creation-Scripts/activity.sql': 0
+
+---------------------------------------------------
+Running script 'SQL-DB-Creation-Scripts/005-day.sql'
+create table day
+(
+    day_id   integer not null,
+    day_name text,
+    date     text
+);
+CREATE TABLE
+alter table day
+    add constraint day_pk
+        primary key (day_id);
+ALTER TABLE
+
+Exit status for 'SQL-DB-Creation-Scripts/005-day.sql': 0
+
+---------------------------------------------------
+Running script 'SQL-DB-Creation-Scripts/day.sql'
+INSERT INTO public.day (day_id, day_name, date) VALUES (14, 'Saturday- December', '2025-12-13');
+INSERT 0 1
+INSERT INTO public.day (day_id, day_name, date) VALUES (12, 'Thrusday- Augest', '2025-08-28');
+INSERT 0 1
+INSERT INTO public.day (day_id, day_name, date) VALUES (11, 'Tuesday- Oct other', '2025-10-14');
+INSERT 0 1
+INSERT INTO public.day (day_id, day_name, date) VALUES (20, 'Friday - December', '2025-12-19');
+INSERT 0 1
+INSERT INTO public.day (day_id, day_name, date) VALUES (13, 'Wednesday- Oct other', '2025-10-29');
+INSERT 0 1
+INSERT INTO public.day (day_id, day_name, date) VALUES (17, 'Tuesday- December', '2025-12-16');
+INSERT 0 1
+INSERT INTO public.day (day_id, day_name, date) VALUES (18, 'Wednesday- December', '2025-12-17');
+INSERT 0 1
+INSERT INTO public.day (day_id, day_name, date) VALUES (3, 'Tuesday', '2025-10-14');
+INSERT 0 1
+INSERT INTO public.day (day_id, day_name, date) VALUES (4, 'Wednesday', '2025-10-15');
+INSERT 0 1
+INSERT INTO public.day (day_id, day_name, date) VALUES (5, 'Thrusday', '2025-10-16');
+INSERT 0 1
+INSERT INTO public.day (day_id, day_name, date) VALUES (2, 'Monday', '2025-10-13');
+INSERT 0 1
+INSERT INTO public.day (day_id, day_name, date) VALUES (9, 'Saturday-November', '2025-11-08');
+INSERT 0 1
+INSERT INTO public.day (day_id, day_name, date) VALUES (7, 'Saturday', '2025-10-18');
+INSERT 0 1
+INSERT INTO public.day (day_id, day_name, date) VALUES (19, 'Thursday- December', '2025-12-18');
+INSERT 0 1
+INSERT INTO public.day (day_id, day_name, date) VALUES (8, 'Saturday- September', '2025-09-27');
+INSERT 0 1
+INSERT INTO public.day (day_id, day_name, date) VALUES (16, 'Monday- December', '2025-12-15');
+INSERT 0 1
+INSERT INTO public.day (day_id, day_name, date) VALUES (10, 'Friday- Oct other', '2025-10-24');
+INSERT 0 1
+INSERT INTO public.day (day_id, day_name, date) VALUES (22, 'Sunday - December other', '2025-10-21');
+INSERT 0 1
+INSERT INTO public.day (day_id, day_name, date) VALUES (21, 'Saturday- December other', '2025-12-20');
+INSERT 0 1
+INSERT INTO public.day (day_id, day_name, date) VALUES (15, 'Sunday- December', '2025-12-14');
+INSERT 0 1
+INSERT INTO public.day (day_id, day_name, date) VALUES (6, 'Friday', '2025-10-17');
+INSERT 0 1
+INSERT INTO public.day (day_id, day_name, date) VALUES (1, 'Sunday', '2025-10-12');
+INSERT 0 1
+
+Exit status for 'SQL-DB-Creation-Scripts/day.sql': 0
+
+---------------------------------------------------
+Running script 'SQL-DB-Creation-Scripts/006-location.sql'
+create table location
+(
+    location_id      integer not null,
+    location_name    text,
+    location_address text
+);
+CREATE TABLE
+alter table location
+    add constraint location_pk
+        primary key (location_id);
+ALTER TABLE
+
+Exit status for 'SQL-DB-Creation-Scripts/006-location.sql': 0
+
+---------------------------------------------------
+Running script 'SQL-DB-Creation-Scripts/location.sql'
+INSERT INTO public.location (location_id, location_name, location_address) VALUES (1, 'Home', '2425 Rue Jessan Marrero LA');
+INSERT 0 1
+INSERT INTO public.location (location_id, location_name, location_address) VALUES (2, 'School', '6363 St Charles Ave, New Orleans, LA');
+INSERT 0 1
+INSERT INTO public.location (location_id, location_name, location_address) VALUES (5, 'Walmart', '4810 Lapalco Blvd, Marrero, LA 70072');
+INSERT 0 1
+INSERT INTO public.location (location_id, location_name, location_address) VALUES (7, 'Smoothie King Center', '1501 Dave Dixon Dr Space 101-102, New Orleans, LA 70113');
+INSERT 0 1
+INSERT INTO public.location (location_id, location_name, location_address) VALUES (8, 'Caesars SuperDome', '1500 Sugar Bowl Dr, New Orleans, LA 70112');
+INSERT 0 1
+INSERT INTO public.location (location_id, location_name, location_address) VALUES (9, 'Church', '3500 Ames Blvd, Marrero, LA 70072');
+INSERT 0 1
+INSERT INTO public.location (location_id, location_name, location_address) VALUES (10, 'Crescent City Classic ', '1450 Poydras St. New Orleans LA 70112');
+INSERT 0 1
+INSERT INTO public.location (location_id, location_name, location_address) VALUES (11, 'CVS', '2564 Barataria Blvd, Marrero, LA 70072');
+INSERT 0 1
+INSERT INTO public.location (location_id, location_name, location_address) VALUES (12, 'Doctor Office', '4225 Lapalco Blvd, Marrero, LA 70072');
+INSERT 0 1
+INSERT INTO public.location (location_id, location_name, location_address) VALUES (13, 'Nanny''s house', '4921 Liberty Oaks Dr, Marrero, LA 70072');
+INSERT 0 1
+INSERT INTO public.location (location_id, location_name, location_address) VALUES (14, 'Justin''s House', '139 Bald Eagle Dr, Belle Chasse, LA 70037');
+INSERT 0 1
+INSERT INTO public.location (location_id, location_name, location_address) VALUES (15, 'Mimi and Pawpaw house', '2436 Rue Jesann, Marrero, LA 70072');
+INSERT 0 1
+INSERT INTO public.location (location_id, location_name, location_address) VALUES (16, 'Sun Outdors Campground', '43234 LA-445, Ponchatoula, LA 70454');
+INSERT 0 1
+INSERT INTO public.location (location_id, location_name, location_address) VALUES (19, 'airport New Orleans MSY', '1 Terminal Dr, Kenner, LA 70062');
+INSERT 0 1
+INSERT INTO public.location (location_id, location_name, location_address) VALUES (20, 'airport orlando (MCO)', 'Jeff Fuqua Blvd, Orlando, FL 32827');
+INSERT 0 1
+INSERT INTO public.location (location_id, location_name, location_address) VALUES (21, 'radisson resort at the port', '8701 Astronaut Blvd, Cape Canaveral, FL 32920');
+INSERT 0 1
+INSERT INTO public.location (location_id, location_name, location_address) VALUES (22, 'port canaveral', '9050 Discovery Rd, Cape Canaveral, FL 32920');
+INSERT 0 1
+INSERT INTO public.location (location_id, location_name, location_address) VALUES (23, 'Perfect Day at Coco Cay', 'Island in The Bahamas');
+INSERT 0 1
+INSERT INTO public.location (location_id, location_name, location_address) VALUES (24, 'At Sea', 'atlantic Ocean');
+INSERT 0 1
+INSERT INTO public.location (location_id, location_name, location_address) VALUES (25, 'Charlotte Amalie, St Thomas', '83JG+M8H, Charlotte Amalie East, St Thomas 00802, U.S. Virgin Islands');
+INSERT 0 1
+INSERT INTO public.location (location_id, location_name, location_address) VALUES (26, 'Philipsburg, St.Maarten', '2X74+83R Great Bay, Philipsburg, Sint Maarten');
+INSERT 0 1
+INSERT INTO public.location (location_id, location_name, location_address) VALUES (27, 'Nanny''s work', '1450 Poydras St #404, New Orleans, LA 70112');
+INSERT 0 1
+INSERT INTO public.location (location_id, location_name, location_address) VALUES (28, 'Amber and Coreys house', '2588 Blue Heron Trace, Marrero, LA 70072');
+INSERT 0 1
+INSERT INTO public.location (location_id, location_name, location_address) VALUES (29, 'Kaiden''s work', '6205 Lapalco Blvd, Marrero, LA 70072');
+INSERT 0 1
+INSERT INTO public.location (location_id, location_name, location_address) VALUES (31, 'po boy depot', '4400 Leo Kerner Pkwy, Marrero, LA 70072');
+INSERT 0 1
+INSERT INTO public.location (location_id, location_name, location_address) VALUES (32, 'jarnell white barborshop', '2324 Barataria Blvd #5, Marrero, LA 70072');
+INSERT 0 1
+
+Exit status for 'SQL-DB-Creation-Scripts/location.sql': 0
+
+---------------------------------------------------
+Running script 'SQL-DB-Creation-Scripts/007-mood.sql'
+create table mood
+(
+    mood_id   integer not null,
+    mood_name text
+);
+CREATE TABLE
+alter table mood
+    add constraint mood_pk
+        primary key (mood_id);
+ALTER TABLE
+
+Exit status for 'SQL-DB-Creation-Scripts/007-mood.sql': 0
+
+---------------------------------------------------
+Running script 'SQL-DB-Creation-Scripts/mood.sql'
+INSERT INTO public.mood (mood_id, mood_name) VALUES (1, 'happy');
+INSERT 0 1
+INSERT INTO public.mood (mood_id, mood_name) VALUES (2, 'sad');
+INSERT 0 1
+INSERT INTO public.mood (mood_id, mood_name) VALUES (3, 'annoyed');
+INSERT 0 1
+INSERT INTO public.mood (mood_id, mood_name) VALUES (4, 'mad');
+INSERT 0 1
+INSERT INTO public.mood (mood_id, mood_name) VALUES (5, 'content');
+INSERT 0 1
+INSERT INTO public.mood (mood_id, mood_name) VALUES (6, 'tired');
+INSERT 0 1
+INSERT INTO public.mood (mood_id, mood_name) VALUES (7, 'worried');
+INSERT 0 1
+INSERT INTO public.mood (mood_id, mood_name) VALUES (8, 'disgust');
+INSERT 0 1
+INSERT INTO public.mood (mood_id, mood_name) VALUES (9, 'hopeful');
+INSERT 0 1
+INSERT INTO public.mood (mood_id, mood_name) VALUES (10, 'board');
+INSERT 0 1
+
+Exit status for 'SQL-DB-Creation-Scripts/mood.sql': 0
+
+---------------------------------------------------
+Running script 'SQL-DB-Creation-Scripts/004-activitylog.sql'
+create table activitylog
+(
+    activitylog_id integer not null,
+    person_id      integer,
+    activity_id    integer,
+    start_time     time,
+    end_time       time,
+    day_id         integer
+);
+CREATE TABLE
+alter table activitylog
+    add constraint activitylog_pk
+        primary key (activitylog_id);
+ALTER TABLE
+alter table activitylog
+    add constraint activitylog_fk
+        foreign key (activity_id) references activity;
+ALTER TABLE
+alter table activitylog
+    add constraint activitylog_fk2
+        foreign key (person_id) references person;
+ALTER TABLE
+alter table activitylog
+    add constraint activitylog_fk3
+        foreign key (day_id) references day;
+ALTER TABLE
+
+Exit status for 'SQL-DB-Creation-Scripts/004-activitylog.sql': 0
+
+---------------------------------------------------
+Running script 'SQL-DB-Creation-Scripts/activitylog.sql'
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (124, 1, 4, '08:11:00', '08:16:00', 1);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (74, 1, 5, '07:16:00', '07:18:00', 3);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (125, 1, 5, '08:16:00', '08:18:00', 1);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (100, 1, 5, '07:16:00', '07:18:00', 5);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (126, 1, 6, '08:18:00', '08:21:00', 1);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (6, 1, 6, '08:18:00', '08:21:00', 2);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (101, 1, 6, '07:18:00', '07:21:00', 5);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (22, 1, 64, '22:30:00', '22:35:00', 2);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (117, 1, 64, '22:30:00', '22:35:00', 5);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (139, 1, 64, '22:30:00', '22:35:00', 1);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (69, 1, 64, '23:30:00', '23:35:00', 6);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (84, 1, 31, '15:30:00', '16:30:00', 3);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (109, 1, 31, '15:30:00', '16:30:00', 5);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (58, 1, 23, '12:30:00', '13:00:00', 6);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (33, 1, 23, '12:30:00', '13:00:00', 4);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (135, 1, 22, '17:15:00', '17:30:00', 1);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (63, 1, 22, '17:15:00', '17:30:00', 6);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (162, 1, 22, '17:15:00', '17:30:00', 7);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (16, 1, 22, '17:15:00', '17:45:00', 2);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (61, 1, 21, '15:30:00', '16:15:00', 6);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (19, 1, 24, '16:15:00', '17:00:00', 2);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (41, 1, 24, '17:45:00', '18:45:00', 4);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (47, 1, 28, '20:00:00', '20:20:00', 4);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (40, 1, 65, '19:00:00', '19:35:00', 4);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (42, 1, 27, '20:20:00', '21:00:00', 4);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (37, 1, 25, '19:35:00', '20:00:00', 4);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (120, 1, 28, '19:20:00', '19:45:00', 5);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (113, 1, 65, '18:50:00', '19:20:00', 5);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (115, 1, 27, '19:45:00', '20:30:00', 5);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (59, 1, 25, '17:45:00', '18:45:00', 6);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (137, 1, 21, '11:15:00', '11:45:00', 1);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (131, 1, 23, '11:45:00', '12:15:00', 1);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (130, 1, 30, '09:00:00', '09:10:00', 1);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (134, 1, 47, '11:00:00', '11:10:00', 1);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (132, 1, 39, '08:45:00', '08:50:00', 1);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (133, 1, 43, '08:50:00', '09:00:00', 1);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (127, 1, 36, '12:15:00', '12:30:00', 1);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (129, 1, 33, '09:10:00', '10:00:00', 1);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (159, 1, 65, '13:30:00', '14:00:00', 7);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (146, 1, 68, '10:35:00', '10:45:00', 7);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (150, 1, 67, '19:00:00', '19:20:00', 7);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (161, 1, 28, '19:20:00', '19:35:00', 7);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (154, 1, 21, '10:00:00', '10:30:00', 7);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (147, 1, 69, '10:45:00', '11:45:00', 7);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (155, 1, 38, '14:30:00', '15:00:00', 7);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (157, 1, 23, '14:00:00', '14:30:00', 7);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (158, 1, 40, '12:30:00', '13:30:00', 7);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (23, 1, 1, '08:00:00', '08:02:00', 4);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (121, 1, 1, '08:00:00', '08:02:00', 1);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (48, 1, 1, '08:00:00', '08:02:00', 6);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (1, 1, 1, '08:00:00', '08:02:00', 2);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (140, 1, 1, '08:00:00', '08:02:00', 7);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (49, 1, 2, '08:02:00', '08:10:00', 6);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (141, 1, 2, '08:02:00', '08:10:00', 7);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (24, 1, 2, '08:02:00', '08:10:00', 4);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (122, 1, 2, '08:02:00', '08:10:00', 1);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (2, 1, 2, '08:02:00', '08:10:00', 2);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (70, 1, 1, '07:00:00', '07:02:00', 3);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (96, 1, 1, '07:00:00', '07:02:00', 5);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (71, 1, 2, '07:02:00', '07:10:00', 3);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (97, 1, 2, '07:02:00', '07:10:00', 5);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (72, 1, 3, '07:10:00', '07:11:00', 3);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (142, 1, 3, '08:10:00', '08:11:00', 7);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (3, 1, 3, '08:10:00', '08:11:00', 2);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (123, 1, 3, '08:10:00', '08:11:00', 1);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (50, 1, 3, '08:10:00', '08:11:00', 6);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (25, 1, 3, '08:10:00', '08:11:00', 4);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (98, 1, 3, '07:10:00', '07:11:00', 5);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (143, 1, 4, '08:11:00', '08:16:00', 7);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (99, 1, 4, '07:11:00', '07:16:00', 5);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (148, 1, 21, '11:45:00', '12:00:00', 7);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (153, 1, 9, '16:30:00', '16:45:00', 7);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (149, 1, 65, '12:00:00', '12:15:00', 7);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (152, 1, 21, '17:00:00', '17:15:00', 7);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (151, 1, 46, '17:45:00', '18:00:00', 7);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (160, 1, 29, '19:35:00', '21:00:00', 7);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (156, 1, 21, '15:30:00', '16:00:00', 7);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (4, 1, 4, '08:11:00', '08:16:00', 2);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (51, 1, 4, '08:11:00', '08:16:00', 6);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (26, 1, 4, '08:11:00', '08:16:00', 4);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (73, 1, 4, '07:11:00', '07:16:00', 3);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (27, 1, 5, '08:16:00', '08:18:00', 4);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (52, 1, 5, '08:16:00', '08:18:00', 6);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (5, 1, 5, '08:16:00', '08:18:00', 2);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (144, 1, 5, '08:16:00', '08:18:00', 7);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (145, 1, 6, '08:18:00', '08:21:00', 7);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (75, 1, 6, '07:18:00', '07:21:00', 3);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (28, 1, 6, '08:18:00', '08:21:00', 4);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (53, 1, 6, '08:18:00', '08:21:00', 6);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (76, 1, 7, '07:21:00', '07:26:00', 3);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (29, 1, 7, '08:21:00', '08:26:00', 4);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (102, 1, 7, '07:21:00', '07:26:00', 5);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (7, 1, 7, '08:21:00', '08:26:00', 2);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (54, 1, 7, '08:21:00', '08:26:00', 6);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (55, 1, 8, '09:00:00', '09:45:00', 6);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (8, 1, 8, '09:00:00', '09:45:00', 2);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (56, 1, 10, '10:30:00', '11:20:00', 6);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (31, 1, 10, '10:30:00', '11:20:00', 4);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (9, 1, 10, '10:30:00', '11:20:00', 2);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (13, 1, 11, '14:30:00', '15:20:00', 2);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (60, 1, 11, '14:30:00', '15:30:00', 6);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (78, 1, 12, '09:30:00', '10:45:00', 3);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (104, 1, 12, '09:30:00', '10:45:00', 5);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (105, 1, 13, '11:00:00', '12:15:00', 5);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (82, 1, 14, '14:00:00', '15:15:00', 3);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (83, 1, 15, '12:30:00', '13:15:00', 3);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (45, 1, 18, '11:30:00', '12:30:00', 4);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (44, 1, 64, '22:30:00', '22:35:00', 4);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (92, 1, 64, '22:30:00', '22:35:00', 3);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (32, 1, 31, '15:30:00', '16:30:00', 4);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (57, 1, 31, '11:30:00', '12:30:00', 6);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (10, 1, 31, '11:30:00', '12:30:00', 2);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (106, 1, 23, '12:30:00', '13:00:00', 5);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (11, 1, 23, '12:30:00', '13:00:00', 2);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (80, 1, 23, '12:30:00', '13:00:00', 3);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (111, 1, 22, '17:15:00', '17:30:00', 5);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (38, 1, 22, '17:15:00', '17:45:00', 4);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (86, 1, 22, '17:15:00', '17:30:00', 3);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (36, 1, 21, '16:30:00', '17:15:00', 4);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (85, 1, 21, '16:30:00', '17:15:00', 3);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (14, 1, 21, '15:30:00', '16:15:00', 2);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (67, 1, 27, '20:20:00', '20:50:00', 6);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (110, 1, 21, '16:30:00', '17:00:00', 5);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (87, 1, 41, '17:45:00', '17:50:00', 3);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (66, 1, 24, '16:15:00', '17:00:00', 6);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (20, 1, 27, '19:45:00', '20:30:00', 2);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (15, 1, 25, '19:00:00', '19:45:00', 2);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (12, 1, 25, '17:50:00', '18:30:00', 2);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (21, 1, 29, '20:30:00', '22:10:00', 2);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (17, 1, 41, '17:45:00', '17:50:00', 2);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (89, 1, 24, '17:50:00', '18:50:00', 3);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (81, 1, 26, '13:15:00', '14:00:00', 3);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (91, 1, 29, '20:20:00', '22:10:00', 3);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (88, 1, 65, '18:50:00', '19:20:00', 3);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (43, 1, 29, '21:00:00', '22:10:00', 4);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (39, 1, 41, '17:45:00', '17:50:00', 4);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (34, 1, 25, '18:00:00', '19:00:00', 4);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (114, 1, 24, '17:50:00', '18:50:00', 5);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (112, 1, 41, '17:45:00', '17:50:00', 5);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (107, 1, 26, '13:15:00', '14:00:00', 5);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (116, 1, 29, '20:30:00', '22:10:00', 5);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (65, 1, 65, '18:45:00', '19:30:00', 6);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (68, 1, 29, '20:50:00', '22:10:00', 6);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (62, 1, 25, '19:30:00', '20:20:00', 6);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (64, 1, 41, '17:30:00', '17:35:00', 6);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (136, 1, 37, '17:30:00', '18:00:00', 1);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (128, 1, 42, '10:00:00', '11:00:00', 1);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (138, 1, 29, '20:00:00', '22:10:00', 1);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (174, 1, 39, '07:30:00', '07:32:00', 3);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (176, 1, 39, '07:30:00', '07:32:00', 5);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (175, 1, 39, '08:30:00', '08:32:00', 4);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (173, 1, 39, '08:30:00', '08:32:00', 2);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (103, 1, 8, '08:00:00', '08:45:00', 5);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (77, 1, 8, '08:00:00', '08:45:00', 3);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (30, 1, 8, '09:00:00', '09:45:00', 4);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (35, 1, 11, '14:30:00', '15:20:00', 4);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (79, 1, 13, '11:00:00', '12:15:00', 3);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (108, 1, 14, '14:00:00', '15:15:00', 5);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (188, 1, 16, '13:15:00', '13:30:00', 3);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (189, 1, 17, '16:30:00', '16:45:00', 4);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (190, 1, 20, '19:00:00', '20:00:00', 4);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (165, 1, 64, '23:00:00', '23:10:00', 7);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (181, 1, 66, '08:20:00', '08:25:00', 1);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (187, 1, 66, '08:20:00', '08:25:00', 7);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (182, 1, 66, '08:40:00', '08:45:00', 2);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (183, 1, 66, '07:40:00', '07:45:00', 3);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (185, 1, 66, '07:40:00', '07:45:00', 5);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (186, 1, 66, '08:40:00', '08:45:00', 6);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (184, 1, 66, '08:40:00', '08:45:00', 4);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (202, 1, 57, '00:00:00', '23:59:59', 16);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (204, 1, 59, '00:00:00', '23:59:59', 18);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (203, 1, 58, '00:00:00', '23:59:59', 17);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (206, 1, 61, '00:00:00', '23:59:59', 20);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (205, 1, 60, '00:00:00', '23:59:59', 19);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (207, 1, 62, '00:00:00', '23:59:59', 21);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (208, 1, 63, '00:00:00', '23:59:59', 22);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (18, 1, 65, '18:30:00', '19:00:00', 2);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (167, 1, 32, '22:15:00', '22:30:00', 2);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (168, 1, 32, '18:45:00', '18:50:00', 3);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (95, 1, 28, '19:20:00', '19:45:00', 3);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (90, 1, 27, '19:45:00', '20:20:00', 3);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (169, 1, 32, '17:50:00', '18:00:00', 4);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (170, 1, 32, '18:45:00', '18:50:00', 5);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (179, 1, 48, '17:00:00', '17:15:00', 5);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (171, 1, 32, '17:35:00', '17:45:00', 6);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (192, 1, 35, '07:30:00', '08:00:00', 14);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (198, 1, 53, '19:00:00', '21:00:00', 10);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (195, 1, 50, '10:00:00', '11:45:00', 12);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (201, 1, 56, '00:00:00', '23:59:59', 15);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (193, 1, 44, '12:00:00', '12:30:00', 14);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (197, 1, 52, '12:00:00', '14:00:00', 11);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (196, 1, 51, '11:00:00', '19:19:22', 15);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (200, 1, 55, '08:00:00', '09:00:00', 9);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (199, 1, 54, '19:00:00', '22:00:00', 8);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (194, 1, 45, '10:00:00', '10:30:00', 15);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (191, 1, 34, '23:00:00', '23:30:00', 13);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (166, 1, 32, '08:35:00', '08:45:00', 1);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (164, 1, 27, '22:00:00', '22:50:00', 7);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (172, 1, 32, '08:25:00', '08:35:00', 7);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (163, 1, 29, '21:00:00', '22:00:00', 7);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (178, 1, 39, '10:30:00', '10:35:00', 7);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (180, 1, 49, '08:35:00', '09:00:00', 7);
+INSERT 0 1
+INSERT INTO public.activitylog (activitylog_id, person_id, activity_id, start_time, end_time, day_id) VALUES (177, 1, 39, '08:30:00', '08:32:00', 6);
+INSERT 0 1
+
+Exit status for 'SQL-DB-Creation-Scripts/activitylog.sql': 0
+
+---------------------------------------------------
+Running script 'SQL-DB-Creation-Scripts/001-activity_location.sql'
+create table activity_location
+(
+    activitylog_id integer not null,
+    location_id    integer not null
+);
+CREATE TABLE
+alter table activity_location
+    add constraint activity_location_pk
+        primary key (activitylog_id, location_id);
+ALTER TABLE
+alter table activity_location
+    add constraint activity_location_fk
+        foreign key (activitylog_id) references activitylog;
+ALTER TABLE
+alter table activity_location
+    add constraint activity_location_fk2
+        foreign key (location_id) references location;
+ALTER TABLE
+
+Exit status for 'SQL-DB-Creation-Scripts/001-activity_location.sql': 0
+
+---------------------------------------------------
+Running script 'SQL-DB-Creation-Scripts/activity_location.sql'
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (1, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (2, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (3, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (4, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (5, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (6, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (7, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (8, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (9, 2);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (10, 2);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (11, 2);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (12, 2);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (13, 2);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (14, 2);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (15, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (16, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (17, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (18, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (19, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (20, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (21, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (22, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (23, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (24, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (25, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (26, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (27, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (28, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (29, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (30, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (31, 2);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (32, 2);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (33, 2);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (34, 2);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (35, 2);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (36, 2);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (37, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (38, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (39, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (40, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (41, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (42, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (43, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (44, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (45, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (47, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (48, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (49, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (50, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (51, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (52, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (53, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (54, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (55, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (56, 2);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (57, 2);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (58, 2);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (59, 2);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (60, 2);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (61, 2);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (62, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (63, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (64, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (65, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (66, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (67, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (68, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (69, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (70, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (71, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (72, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (73, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (74, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (75, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (76, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (77, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (78, 2);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (79, 2);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (80, 2);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (81, 2);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (82, 2);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (83, 2);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (84, 2);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (85, 2);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (86, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (87, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (88, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (89, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (90, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (91, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (92, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (95, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (96, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (97, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (98, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (99, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (100, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (101, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (102, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (103, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (104, 2);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (105, 2);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (106, 2);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (107, 2);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (108, 2);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (109, 2);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (110, 2);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (111, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (112, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (113, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (114, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (115, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (116, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (117, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (120, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (121, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (122, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (123, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (124, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (125, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (126, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (127, 5);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (128, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (129, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (130, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (131, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (132, 15);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (133, 11);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (134, 31);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (135, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (136, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (137, 9);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (138, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (139, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (140, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (141, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (142, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (143, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (144, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (145, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (146, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (147, 13);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (148, 13);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (149, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (150, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (151, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (152, 12);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (153, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (154, 29);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (155, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (156, 14);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (157, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (158, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (159, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (160, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (161, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (162, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (163, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (164, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (165, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (166, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (167, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (168, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (169, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (170, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (171, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (172, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (173, 15);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (174, 15);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (175, 15);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (176, 15);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (177, 15);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (178, 15);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (179, 32);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (180, 28);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (181, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (182, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (183, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (184, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (185, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (186, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (187, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (188, 2);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (189, 2);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (190, 2);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (191, 1);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (192, 19);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (193, 20);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (194, 21);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (195, 16);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (196, 22);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (197, 27);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (198, 8);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (199, 7);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (200, 10);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (201, 22);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (202, 23);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (203, 24);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (204, 25);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (205, 26);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (206, 24);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (207, 24);
+INSERT 0 1
+INSERT INTO public.activity_location (activitylog_id, location_id) VALUES (208, 22);
+INSERT 0 1
+
+Exit status for 'SQL-DB-Creation-Scripts/activity_location.sql': 0
+
+---------------------------------------------------
+Running script 'SQL-DB-Creation-Scripts/002-activity_mood.sql'
+create table activity_mood
+(
+    activitylog_id integer not null,
+    mood_id        integer not null
+);
+CREATE TABLE
+alter table activity_mood
+    add constraint activity_mood_pk
+        primary key (activitylog_id, mood_id);
+ALTER TABLE
+alter table activity_mood
+    add constraint activity_mood_fk
+        foreign key (activitylog_id) references activitylog;
+ALTER TABLE
+alter table activity_mood
+    add constraint activity_mood_fk2
+        foreign key (mood_id) references mood;
+ALTER TABLE
+
+Exit status for 'SQL-DB-Creation-Scripts/002-activity_mood.sql': 0
+
+---------------------------------------------------
+Running script 'SQL-DB-Creation-Scripts/activity_mood.sql'
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (1, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (2, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (3, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (4, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (5, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (6, 2);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (7, 2);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (8, 3);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (9, 4);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (10, 8);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (11, 7);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (12, 9);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (13, 6);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (14, 5);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (15, 9);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (16, 6);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (17, 9);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (18, 3);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (19, 10);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (20, 4);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (21, 4);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (22, 5);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (23, 5);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (24, 5);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (25, 8);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (26, 7);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (27, 2);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (28, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (29, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (30, 2);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (31, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (32, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (33, 5);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (34, 4);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (35, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (36, 2);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (37, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (38, 5);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (39, 7);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (40, 5);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (41, 8);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (42, 6);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (43, 3);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (44, 8);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (45, 4);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (47, 9);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (48, 4);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (49, 4);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (50, 4);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (51, 2);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (52, 3);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (53, 7);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (54, 8);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (55, 4);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (56, 8);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (57, 7);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (58, 3);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (59, 4);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (60, 5);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (61, 4);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (62, 5);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (63, 4);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (64, 3);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (65, 3);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (66, 3);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (67, 3);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (68, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (69, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (70, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (71, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (72, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (73, 6);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (74, 9);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (75, 2);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (76, 3);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (77, 2);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (78, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (79, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (80, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (81, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (82, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (83, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (84, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (85, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (86, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (87, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (88, 3);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (89, 2);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (90, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (91, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (92, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (95, 6);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (96, 10);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (97, 10);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (98, 10);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (99, 9);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (100, 10);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (101, 2);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (102, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (103, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (104, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (105, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (106, 2);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (107, 3);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (108, 4);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (109, 5);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (110, 6);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (111, 4);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (112, 8);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (113, 9);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (114, 3);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (115, 2);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (116, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (117, 4);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (120, 2);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (121, 2);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (122, 2);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (123, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (124, 2);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (125, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (126, 5);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (127, 8);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (128, 5);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (129, 2);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (130, 5);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (131, 3);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (132, 2);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (133, 7);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (134, 9);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (135, 4);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (136, 6);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (137, 3);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (138, 7);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (139, 5);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (140, 9);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (141, 3);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (142, 5);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (143, 7);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (144, 3);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (145, 9);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (146, 6);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (147, 5);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (148, 6);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (149, 3);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (150, 7);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (151, 9);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (152, 9);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (153, 10);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (154, 3);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (155, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (156, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (157, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (158, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (159, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (160, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (161, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (162, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (163, 4);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (164, 3);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (165, 3);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (166, 5);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (167, 3);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (168, 3);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (169, 2);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (170, 6);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (171, 7);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (172, 4);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (173, 2);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (174, 6);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (175, 7);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (176, 8);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (177, 4);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (178, 3);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (179, 4);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (180, 7);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (181, 4);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (182, 4);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (183, 3);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (184, 5);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (185, 10);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (186, 8);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (187, 8);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (188, 6);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (189, 9);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (190, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (191, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (192, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (193, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (194, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (195, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (196, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (197, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (198, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (199, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (200, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (201, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (202, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (203, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (204, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (205, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (206, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (207, 1);
+INSERT 0 1
+INSERT INTO public.activity_mood (activitylog_id, mood_id) VALUES (208, 2);
+INSERT 0 1
+
+Exit status for 'SQL-DB-Creation-Scripts/activity_mood.sql': 0
+
+-----------------------------------------------------
+Scripts completed. Search for errors follows:
+
+Total error count: 0
+Table counts:
+/******** QUERY *********/
+analyze ;
+/************************/
+
+ANALYZE
+/******** QUERY *********/
+select
+		tbl.schemaname, relname as tablename, tbl.n_live_tup as tablerows
+	from pg_stat_user_tables tbl
+	union all select
+		totals.schemaname, '~TOTAL in ' || count(relname) || ' tables', sum(n_live_tup)
+	from pg_stat_user_tables totals
+	group by totals.schemaname
+	order by
+		schemaname, tablename;
+/************************/
+
+ schemaname |     tablename      | tablerows 
+------------+--------------------+-----------
+ public     | activity           |        68
+ public     | activity_location  |       203
+ public     | activity_mood      |       203
+ public     | activity_type      |        17
+ public     | activitylog        |       203
+ public     | day                |        22
+ public     | location           |        26
+ public     | mood               |        10
+ public     | person             |         1
+ public     | ~TOTAL in 9 tables |       753
+(10 rows)
+
+25-11-30 19:08:51 -- Completed test installation for student (database) 'kmfury1' on port 11363

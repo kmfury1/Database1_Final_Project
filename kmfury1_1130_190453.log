@@ -1,0 +1,11 @@
+25-11-30 19:04:53 -- Starting new test run for student with handle 'kmfury1'
+25-11-30 19:04:53 -- (Re-)creating database 'kmfury1' on port 11363
+NOTICE:  database "kmfury1" does not exist, skipping
+DROP DATABASE
+25-11-30 19:04:53 -- Status from database drop is 0
+CREATE DATABASE
+Checking script list
+Bad script 'SQL-DB-Creation-Scripts/activty.sql,'
+Bad script 'SQL-DB-Creation-Scripts/005-day.sql,day.sql,'
+Bad script 'SQL-DB-Creation-Scripts/001-activiy_location.sql'
+Bad script 'SQL-DB-Creation-Scripts/002activity_mood.sql'

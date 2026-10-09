@@ -1,0 +1,9 @@
+25-11-30 19:06:13 -- Starting new test run for student with handle 'kmfury1'
+25-11-30 19:06:13 -- (Re-)creating database 'kmfury1' on port 11363
+DROP DATABASE
+25-11-30 19:06:14 -- Status from database drop is 0
+CREATE DATABASE
+Checking script list
+Bad script 'SQL-DB-Creation-Scripts/activty.sql'
+Bad script 'SQL-DB-Creation-Scripts/001-activiy_location.sql'
+Bad script 'SQL-DB-Creation-Scripts/002activity_mood.sql'
